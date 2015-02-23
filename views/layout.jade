@@ -1,15 +1,9 @@
 doctype html
-block vars
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type= "text/javascript" src= "/javascript/jquery-2.1.1.min.js")
-    block headcontent
-  body
-   if title != "Login" && title != "Adda-Home"  
-    div.logout
-     a(href = "/logout") Logout
-   center
-    h1 Adda
-   block content
+ head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  center
+   block links
+ body
+  block content
