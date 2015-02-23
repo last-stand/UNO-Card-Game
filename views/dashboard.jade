@@ -1,0 +1,15 @@
+extends layout
+block vars
+ - var title = "dashboard"
+
+block content
+  h1 Welcome to dashboard
+  p
+   a(href = "/addtopics") Add or Search Topics
+   br
+  hr
+  h2 My Latest Topics
+  div 
+   each topic in topics
+    li
+     a(href="topic/#{topic.id}") #{topic.name}
