@@ -1,7 +1,5 @@
 var express = require('express');
 var lib = require('../modules/UNOLib.js').init("data/uno.db");
-var add = require('../modules/addTopics');
-var topic = require('../modules/topic');
 var router = express.Router();
 
 /* GET home page. */

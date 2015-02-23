@@ -34,10 +34,10 @@ describe('uno_records',function(){
 					assert.notOk(error);
 					assert.equal(player.email,"p6@gmail.com");
 					assert.equal(player.user_name,"destroyer");
-					done();
 				});
 			});
 		});
+		done();
 	});
 
 });
