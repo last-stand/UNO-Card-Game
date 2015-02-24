@@ -62,7 +62,6 @@ router.post("/login",function(req,res){
 	var user = req.body;
 	lib.get_password_by_email(user.email,function(err,existing_user){
 		if(existing_user){
-			console.log("~~~~~~~~~~~"+bc.compareSync(user.password,existing_user.password));
 			if(bc.compareSync(user.password,existing_user.password)){ 
 				req.session.user = user.email;
   				res.redirect('/UNOBoard');

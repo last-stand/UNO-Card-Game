@@ -21,9 +21,7 @@ var _getPlayerInfo = function(email,db,onComplete){
 
 var _get_password_by_email = function(email,db,onComplete){
 	var query = "select password from players where email = '"+email+"';";
-	db.get(query,function(err,user){
-		onComplete(null,user);
-	})
+	db.get(query,onComplete);
 };
 
 var init = function(location){	
