@@ -26,8 +26,8 @@ describe('uno_records',function(){
 			var user = {
 				email: 'p6@gmail.com',
 				user_name: 'destroyer',
+				password:'12345'
 			};
-
 			uno_records.insertPlayer(user, function(err){
 				assert.notOk(err);
 				uno_records.getPlayerInfo("p6@gmail.com",function(error,player){
@@ -36,8 +36,8 @@ describe('uno_records',function(){
 					assert.equal(player.user_name,"destroyer");
 				});
 			});
+			done();
 		});
-		done();
 	});
 
 });

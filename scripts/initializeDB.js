@@ -14,9 +14,7 @@ var runAllQuery = function () {
 	};
 
 	[
-		"create table if not exists players(email text primary key,user_name text not null, cards text, status int);",
-		"create table login(email text, password text not null,foreign key(email) references users(email));",
-
+		"create table if not exists players(email text primary key,user_name text not null, password text not null, cards text, status int);"
 	].forEach(runQuery);
 };
 
