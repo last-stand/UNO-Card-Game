@@ -16,6 +16,7 @@ router.get('/UNOBoard', function(req, res) {
 var requireLogin = function(req,res,next){
 	req.session.user? next(): res.redirect('/login');
 };
+
 router.get('/logout',requireLogin, function(req, res) {
 	req.session.destroy();
 	res.redirect("/login");
@@ -26,38 +27,20 @@ router.get('/register', function(req, res) {
 });
 
 router.post('/register', function(req, res) {
-	var result = req.body;
-	lib.insertPlayer(result,function(err){
-		req.session.user = result.email;
+	var userData = req.body;
+	lib.insertPlayer(userData,function(err){
+		req.session.user = userData.email;
 		res.redirect('/UNOBoard');
 	});
 });
 
-
-// router.get('/UNOBoard',function(req,res){
-// 	res.render('UNOBoard');
-// });
 router.get("/login",function(req,res){
 	if(req.session.user){
-		res.redirect('/dashboard');
+		res.redirect('/UNOBoard');
 		return;
 	}
 	res.render("login");
 });
-
-// router.post("/login",function(req,res){
-// 	var user = req.body;
-// 	lib.get_password_by_email(user.email,function(err,existing_user){
-// 		if(existing_user){
-// 			if(bc.compareSync(user.password,existing_user.password)){ 
-// 				req.session.user = user.email;
-//   				res.redirect('/UNOBoard');
-//   				return;
-// 			}		
-// 		}
-// 		res.render('login',{error:'Invalid username or password.'});
-// 	})
-// });
 
 router.post('/UNOBoard',requireLogin, function(req, res) {
 	var cards = {
@@ -74,5 +57,20 @@ var broadcastOnSocket =function(content){
 	socket.broadcast.emit("new_content",{content:content});
 	socket.emit("new_content",{content:content});
 }
+
+router.post("/login",function(req,res){
+	var user = req.body;
+	lib.get_password_by_email(user.email,function(err,existing_user){
+		if(existing_user){
+			console.log("~~~~~~~~~~~"+bc.compareSync(user.password,existing_user.password));
+			if(bc.compareSync(user.password,existing_user.password)){ 
+				req.session.user = user.email;
+  				res.redirect('/UNOBoard');
+  				return;
+			}		
+		}
+		res.render('login',{error:'Invalid username or password.'});
+	})
+});
 
 module.exports = router;
