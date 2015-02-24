@@ -2,6 +2,7 @@ var express = require('express');
 var lib = require('../modules/UNOLib.js').init("data/uno.db");
 var router = express.Router();
 var bc = require("bcryptjs");
+var UNOLib = require('../modules/UNOMethods.js') 
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -33,9 +34,9 @@ router.post('/register', function(req, res) {
 });
 
 
-router.get('/UNOBoard',function(req,res){
-	res.render('UNOBoard');
-});
+// router.get('/UNOBoard',function(req,res){
+// 	res.render('UNOBoard');
+// });
 router.get("/login",function(req,res){
 	if(req.session.user){
 		res.redirect('/dashboard');
@@ -44,18 +45,34 @@ router.get("/login",function(req,res){
 	res.render("login");
 });
 
-router.post("/login",function(req,res){
-	var user = req.body;
-	new_topic_module.get_password_by_email(user.email,function(err,existing_user){
-		if(existing_user){
-			if(bc.compareSync(user.password,existing_user.password)){ 
-				req.session.user = user.email;
-  				res.redirect('/dashboard');
-  				return;
-			}		
-		}
-		res.render('login',{error:'Invalid username or password.'});
-	})
-});
+// router.post("/login",function(req,res){
+// 	var user = req.body;
+// 	lib.get_password_by_email(user.email,function(err,existing_user){
+// 		if(existing_user){
+// 			if(bc.compareSync(user.password,existing_user.password)){ 
+// 				req.session.user = user.email;
+//   				res.redirect('/UNOBoard');
+//   				return;
+// 			}		
+// 		}
+// 		res.render('login',{error:'Invalid username or password.'});
+// 	})
+// });
+
+router.post('/UNOBoard',requireLogin, function(req, res) {
+	var cards = {
+		email:req.session.user,
+		content:UNOLib.players
+	}
+	console.log(cards.content);
+	broadcastOnSocket(cards.content);
+})
+
+var broadcastOnSocket =function(content){
+	var socket = router.getSocket();
+	console.log("socket:",socket.id);
+	socket.broadcast.emit("new_content",{content:content});
+	socket.emit("new_content",{content:content});
+}
 
 module.exports = router;

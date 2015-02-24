@@ -13,11 +13,16 @@ var distributeCards = function(players){
 		gamer["p"+i] = shuffledCards.splice(0,7);
 		i++;
 	});
-}
+};
 
 var addCards = function(players,player,shuffledCards, numberOfCards){
 	var cards = shuffledCards.splice(0,numberOfCards);
 	players.forEach(function(gamer){
 		(Object.keys(gamer)[0] == player) && (gamer[player] = gamer[player].concat(cards));
 	});
-}
+};
+
+distributeCards(players);
+
+exports.shuffledCards = shuffledCards;
+exports.players = players;

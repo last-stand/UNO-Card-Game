@@ -1,7 +1,11 @@
 extends layout
 block vars
  - var title = "UNO Board"
-
+block scripts
+   link(rel="stylesheet" type="text/css" href="/stylesheets/topic.css")
+   script(type ="text/javascript" src ="/javascripts/jquery-2.1.1.min.js")
+   script(type ="text/javascript" src ="/javascripts/handleSocket.js")
+   script(type ="text/javascript" src ="/javascripts/socket.io.js")
 block content
   h2= title
   center
