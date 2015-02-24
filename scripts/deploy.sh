@@ -1,4 +1,5 @@
 npm install
+npm install bootstrap
 mkdir data
 node scripts/initializeDB.js data/uno.db 
 mkdir tests/data
