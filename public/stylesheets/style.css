@@ -3,12 +3,41 @@ body {
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+a:link {
+  border-radius: 35px;
+  color: #491c0c;
+  border: 1px solid #a1a1a1;
+  padding: 10px 40px;
+    color: #FF0000;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+    text-decoration: none;
 }
 
 b{
 	font-size: 20px;
+}
+
+.registerLoginLink {
+  color: black;
+  font-family: "Lucida Grande";
+  font-size: 20px;
 }
 
 .registerForm {
@@ -17,10 +46,11 @@ b{
   font-size: 20px;
 }
 
-.registerLoginButton {
+.playButton {
   color: black;
   font: 15px;
   font-family: "Arial Black";
   width: 10%;
   margin-left: 10px;
 }
+

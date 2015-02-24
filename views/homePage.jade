@@ -8,12 +8,6 @@ block content
    h1 Welcome to UNO
    hr
    br
-   form(acton="" method="POST")
-    div.registerForm
-     |User ID:&nbsp;
-     input(type="email" name="emailId" placeholder="Enter your email-id" required)
-    div.registerForm
-     |Name:&nbsp;
-     input(type="name" name="name" placeholder="Enter your name" required)
-    br
-    input(type="submit" value="Play" class="registerLoginButton")
+   a(href="/register" class="registerLoginLink") Register
+   a(href="/login" class="registerLoginLink") Login
+   
