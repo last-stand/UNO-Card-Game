@@ -24,3 +24,13 @@ b{
   width: 10%;
   margin-left: 10px;
 }
+
+.board{
+  height: 450px;
+  width: 500px;
+  background: yellow;
+}
+
+#mDiv{
+  background: silver;
+}

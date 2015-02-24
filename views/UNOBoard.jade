@@ -1,0 +1,28 @@
+extends layout
+block vars
+ - var title = "UNO Board"
+
+block content
+  h2= title
+  center
+   table(border="1px solid")
+    tr
+     td
+     td
+      h3 Player 3
+     td
+    tr
+     td
+      h3 Player 4
+     td
+      div(class="board")
+     td
+      h3 Player 2
+    tr
+     td(colspan=3)
+      div(id="mDiv")
+    tr
+     td
+     td
+      h3 Player 1
+     td

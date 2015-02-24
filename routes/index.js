@@ -8,4 +8,8 @@ router.get('/', function(req, res) {
   	res.render('homePage');
 });
 
+router.get('/UNOBoard', function(req, res) {
+  	res.render('UNOBoard');
+});
+
 module.exports = router;
