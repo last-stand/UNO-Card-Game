@@ -38,7 +38,7 @@ router.get('/UNOBoard',function(req,res){
 });
 router.get("/login",function(req,res){
 	if(req.session.user){
-		res.redirect('/dashboard');
+		res.redirect('/UNOBoard');
 		return;
 	}
 	res.render("login");
@@ -46,11 +46,11 @@ router.get("/login",function(req,res){
 
 router.post("/login",function(req,res){
 	var user = req.body;
-	new_topic_module.get_password_by_email(user.email,function(err,existing_user){
+	lib.get_password_by_email(user.email,function(err,existing_user){
 		if(existing_user){
 			if(bc.compareSync(user.password,existing_user.password)){ 
 				req.session.user = user.email;
-  				res.redirect('/dashboard');
+  				res.redirect('/UNOBoard');
   				return;
 			}		
 		}
