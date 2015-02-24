@@ -1,11 +1,28 @@
 var sqlite3 = require("sqlite3").verbose();
+var bc = require("bcryptjs");
+var squel = require("squel");
 
-var _insertPlayer = function(userData,db,onComplete){
-	var insertQuery = "insert into players(email, user_name) values('"+
-						userData.email+"','"+userData.user_name+"');";
-	db.run(insertQuery, onComplete);
+var insertNewPassword = function(new_user){
+	return(
+    squel.insert()
+        .into("login")
+        .set("email", new_user.email)
+        .set("password", get_hash_password(new_user.password))
+	).toString();
 };
-
+var get_hash_password = function(password){
+	return bc.hashSync(password);
+};
+var _insertPlayer = function(userData,db,onComplete){
+	var insertQuery = "insert into players(email, user_name, status) values('"+
+						userData.email+"','"+userData.user_name+"',1);";
+	var insertPassword = insertNewPassword(userData);
+	db.run(insertQuery, function(err){
+		db.run(insertPassword , function(err){
+			onComplete(null);
+		})
+	});
+};
 var _getPlayerInfo = function(email,db,onComplete){
 	var selectQuery = "select * from players where email = '"+ email +"';";
 	db.get(selectQuery, onComplete);
