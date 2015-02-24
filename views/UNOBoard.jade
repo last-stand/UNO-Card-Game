@@ -2,13 +2,12 @@ extends layout
 block vars
  - var title = "UNO Board"
 block scripts
-   link(rel="stylesheet" type="text/css" href="/stylesheets/topic.css")
-   script(type ="text/javascript" src ="/javascripts/jquery-2.1.1.min.js")
-   script(type ="text/javascript" src ="/javascripts/handleSocket.js")
-   script(type ="text/javascript" src ="/javascripts/socket.io.js")
+   script(type= "text/javascript" src= "/javascript/jquery-2.1.1.min.js")
+   script(type ="text/javascript" src ="/javascript/handleSocket.js")
+   script(type ="text/javascript" src ="/javascript/socket.io.js")
 block content
-  h2= title
-  center
+ center
+  form(action="/UNOBoard" method="POST")
    table(border="1px solid")
     tr
      td
@@ -19,7 +18,10 @@ block content
      td
       h3 Player 4
      td
-      div(class="board")
+      center
+       div(class="board")
+        img(src="./Unocard PIcs/UNO.jpg" class="boardImg" title="Take card from here.")
+        img(src="./Unocard PIcs/UNOGreen.jpg" class="boardImg"  title="Put card here.")
      td
       h3 Player 2
     tr
@@ -30,3 +32,5 @@ block content
      td
       h3 Player 1
      td
+   br
+   input(type="submit" value="Start" class="playButton"  title="Click here to start game.")

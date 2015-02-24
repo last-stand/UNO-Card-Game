@@ -1,9 +1,13 @@
 doctype html
+block vars
 html
- head
-  title= title
-  link(rel='stylesheet', href='/stylesheets/style.css')
-  center
-   block links
- body
-  block content
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    block scripts
+  body
+   if title != "UNO - Login" && title != "UNO - Register" && title != "UNO"  
+    div.logout
+     a(href = "/logout") Logout
+   center
+   block content

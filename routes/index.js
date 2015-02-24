@@ -2,7 +2,7 @@ var express = require('express');
 var lib = require('../modules/UNOLib.js').init("data/uno.db");
 var router = express.Router();
 var bc = require("bcryptjs");
-var UNOLib = require('../modules/UNOMethods.js') 
+var uno_lib = require('../modules/UNOMethods.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -45,9 +45,8 @@ router.get("/login",function(req,res){
 router.post('/UNOBoard',requireLogin, function(req, res) {
 	var cards = {
 		email:req.session.user,
-		content:UNOLib.players
+		content:uno_lib.game.players[0].p1
 	}
-	console.log(cards.content);
 	broadcastOnSocket(cards.content);
 })
 

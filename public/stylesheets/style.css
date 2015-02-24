@@ -20,8 +20,9 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: #FF00FF;
+    color: silver;
     text-decoration: none;
+    background: maroon;
 }
 
 /* selected link */
@@ -54,11 +55,30 @@ b{
   margin-left: 10px;
 }
 .board{
-  height: 450px;
-  width: 500px;
-  background: yellow;
+  height: 380px;
+  width: 600px;
+}
+
+.boardImg{
+  padding: 12%;
+  position: relative;
+  height: 45%;
+  width: 17%;
 }
 
 #mDiv{
-  background: silver;
+  height: 110px;
+}
+
+.cardImg{
+  padding: 5px;
+  position:relative;
+  height:100px;
+  width:60px;
+} 
+.cardImg:hover{
+  position:relative;
+  height:115px;
+  width:70px;
+  box-shadow: 10px 10px 10px #888888;
 }

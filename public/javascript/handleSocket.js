@@ -1,4 +1,11 @@
-var uno = require('unoBoard.js');
+var generateCards = function(cardArray) {
+	var mDiv = document.getElementById("mDiv");
+	var string = "";
+	cardArray.forEach(function(card){
+		string += "<img id= '"+card+"' src='./Unocard PIcs/"+card+".jpg' class='cardImg'>";
+	});
+	mDiv.innerHTML = "<center>"+string+"</center>";
+};
 
 // var  loadComments = function(){
 // 	$.ajax("/getComments/"+getId())
@@ -23,8 +30,7 @@ var onPageLoad =function(){
 	var socket = io.connect(window.location.hostname);
 
 	socket.on('new_content',function(data){
-		alert(data);
-		//generateCards(data);
+		generateCards(data.content);
 	 	// var comment=$("#mDiv").html();
 	 	// comment += list(data.comment);
 	 	// $("#mDiv").html(comment); 		
