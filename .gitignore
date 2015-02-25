@@ -2,3 +2,4 @@ node_modules
 data
 tests/data
 public/Unocard PIcs
+npm-debug.log
