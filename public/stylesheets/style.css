@@ -57,6 +57,10 @@ b{
 .board{
   height: 380px;
   width: 600px;
+  background-image: url("/Unocard PIcs/UNOBg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 
 .boardImg{
