@@ -68,14 +68,14 @@ describe('uno_records',function(){
 		});
 	});
 	
-	// describe('#get_password_by_email',function(){
-	// 	it('verify user by email and password',function(done){
-	// 		uno_records.get_password_by_email("p1@gmail.com", function(err,player){
-	// 			assert.notOk(err);
-	// 			assert.equal(player.password,"12345");
-	// 			done();
-	// 		});
-	// 	});
+	describe('#get_password_by_email',function(){
+		it('verify user by email and password',function(done){
+			uno_records.get_password_by_email("p1@gmail.com", function(err,player){
+				assert.notOk(err);
+				assert.equal(player.password,"12345");
+				done();
+			});
+		});
 	// 	it('verify invalid user cannot be enter' , function(done){
 	// 		uno_records.get_password_by_email("p1@gmail.com", function(err,player){
 	// 			assert.notOk(err);
