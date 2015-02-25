@@ -75,4 +75,8 @@ router.post("/login",function(req,res){
 	})
 });
 
+router.get('/introduction', function(req, res) {
+  	res.render('introduction');
+});
+
 module.exports = router;
