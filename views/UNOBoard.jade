@@ -1,0 +1,36 @@
+extends layout
+block vars
+ - var title = "UNO Board"
+block scripts
+   script(type= "text/javascript" src= "/javascript/jquery-2.1.1.min.js")
+   script(type ="text/javascript" src ="/javascript/handleSocket.js")
+   script(type ="text/javascript" src ="/javascript/socket.io.js")
+block content
+ center
+  form(action="/UNOBoard" method="POST")
+   table(border="1px solid")
+    tr
+     td
+     td
+      h3 Player 3
+     td
+    tr
+     td
+      h3 Player 4
+     td
+      center
+       div(class="board")
+        img(src="./Unocard PIcs/UNO.jpg" class="boardImg" title="Take card from here.")
+        img(src="./Unocard PIcs/UNOGreen.jpg" class="boardImg"  title="Put card here.")
+     td
+      h3 Player 2
+    tr
+     td(colspan=3)
+      div(id="mDiv")
+    tr
+     td
+     td
+      h3 Player 1
+     td
+   br
+   input(type="submit" value="Start" class="playButton"  title="Click here to start game.")
