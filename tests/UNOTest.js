@@ -46,16 +46,16 @@ describe('uno_records',function(){
 				});
 			});
 		});
-	// 	it('insert player name into players table',function(done){
-	// 		uno_records.insertPlayer(user, function(err){
-	// 			assert.notOk(err);
-	// 			uno_records.getPlayerInfo("p6@gmail.com",function(error,player){
-	// 				assert.notOk(error);
-	// 				assert.equal(player.user_name,"destroyer");
-	// 				done();
-	// 			});
-	// 		});
-	// 	});
+		it('insert player name into players table',function(done){
+			uno_records.insertPlayer(user, function(err){
+				assert.notOk(err);
+				uno_records.getPlayerInfo("p6@gmail.com",function(error,player){
+					assert.notOk(error);
+					assert.equal(player.user_name,"destroyer");
+					done();
+				});
+			});
+		});
 	// 	it('insert player status into players table',function(done){
 	// 		uno_records.insertPlayer(user, function(err){
 	// 			assert.notOk(err);
