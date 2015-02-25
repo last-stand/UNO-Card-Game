@@ -49,7 +49,7 @@ router.get("/login",function(req,res){
 router.post('/UNOBoard',requireLogin, function(req, res) {
 	var cards = {
 		email:req.session.user,
-		content:uno_lib.game.players[0].p1
+		content:uno_lib.game.players
 	}
 	broadcastOnSocket(cards);
 })

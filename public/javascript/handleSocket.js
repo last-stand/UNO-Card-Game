@@ -30,10 +30,10 @@ var onPageLoad =function(){
 	var socket = io.connect(window.location.hostname);
 
 	socket.on('new_content',function(data){
-		generateCards(data.content,"mDiv",1);
-		generateCards(data.content,"mDiv2",2);
-		generateCards(data.content,"mDiv3",3);
-		generateCards(data.content,"mDiv4",4);
+		generateCards(data.content[0].p1,"mDiv",1);
+		generateCards(data.content[1].p2,"mDiv2",2);
+		generateCards(data.content[2].p3,"mDiv3",3);
+		generateCards(data.content[3].p4,"mDiv4",4);
 	 	// var comment=$("#mDiv").html();
 	 	// comment += list(data.comment);
 	 	// $("#mDiv").html(comment); 		
