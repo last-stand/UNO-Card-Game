@@ -31,7 +31,8 @@ var getRandomInt = function(min, max) {
 game.startGameWithColouredCard = function(){
 	var index = getRandomInt(0, game.shuffledCards.length-1);
 	var arr = ['B','G','R','Y'];
-	if(arr.indexOf(game.shuffledCards[index].slice(0,1)))
+	var arr1 = ['_S' , '_R' , '_P'];
+	if(arr.indexOf(game.shuffledCards[index].slice(0,1)) >= 0 && arr1.indexOf(game.shuffledCards[index].slice(1,3))<0)
 		return game.shuffledCards[index];
 	return game.startGameWithColouredCard();
 }

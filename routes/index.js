@@ -3,14 +3,14 @@ var lib = require('../modules/UNOLib.js').init("data/uno.db");
 var router = express.Router();
 var bc = require("bcryptjs");
 var uno_lib = require('../modules/UNOMethods.js');
-
+var startCard = uno_lib.game.startGameWithColouredCard();;
 /* GET home page. */
 router.get('/', function(req, res) {
   	res.render('homePage');
 });
 
 router.get('/UNOBoard', function(req, res) {
-  	res.render('UNOBoard');
+  	res.render('UNOBoard',{startCard:startCard});
 });
 
 var requireLogin = function(req,res,next){
@@ -47,14 +47,14 @@ router.post('/UNOBoard',requireLogin, function(req, res) {
 		email:req.session.user,
 		content:uno_lib.game.players[0].p1
 	}
-	broadcastOnSocket(cards.content);
+	broadcastOnSocket(cards);
 })
 
 var broadcastOnSocket =function(content){
 	var socket = router.getSocket();
 	console.log("socket:",socket.id);
-	socket.broadcast.emit("new_content",{content:content});
-	socket.emit("new_content",{content:content});
+	socket.broadcast.emit("new_content",content);
+	socket.emit("new_content",content);
 }
 
 router.post("/login",function(req,res){
