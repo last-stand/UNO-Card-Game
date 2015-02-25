@@ -1,11 +1,14 @@
 var sqlite3 = require("sqlite3").verbose();
 var bc = require("bcryptjs");
 var squel = require("squel");
-var lib = require("./lib.js").lib;
+
+var get_hash_password = function(password){
+	return bc.hashSync(password);
+};
 
 var _insertPlayer = function(userData,db,onComplete){
 	var insertQuery = "insert into players(email, user_name, password, status) values('"+
-					userData.email+"','"+userData.user_name+"','"+lib.get_hash_password(userData.password)+"',1);";
+					userData.email+"','"+userData.user_name+"','"+get_hash_password(userData.password)+"',1);";
 	db.run(insertQuery, function(err){
 		onComplete(null);
 	});
