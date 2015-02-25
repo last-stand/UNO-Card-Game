@@ -76,15 +76,15 @@ describe('uno_records',function(){
 				done();
 			});
 		});
-	// 	it('verify invalid user cannot be enter' , function(done){
-	// 		uno_records.get_password_by_email("p1@gmail.com", function(err,player){
-	// 			assert.notOk(err);
-	// 			assert.ok(player.password!="23451");
-	// 			done();
-	// 		});
-	// 	})
+		it('verify invalid user cannot be enter' , function(done){
+			uno_records.get_password_by_email("p1@gmail.com", function(err,player){
+				assert.notOk(err);
+				assert.ok(player.password!="23451");
+				done();
+			});
+		})
 
-	// });
+	});
 
 	// describe('#startGameWithColouredCard',function(){
 	// 	it('starting card should be coloured',function(done){
