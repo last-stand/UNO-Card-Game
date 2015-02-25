@@ -1,15 +1,19 @@
-extends layout
 block vars
  - var title = "UNO - Introduction"
 
 block content
  center
+  br
+  br
+  br
+  br
+  br
   h1 Introduction
   hr
   p 
   |1. UNO is a card game. It has four coloured cards-red,green,yellow and blue
   p
-  |2. All colour cards contain number cards from 0-9 and skip card,+2 and reverse card
+  |2. All colour cards contain number cards from 0-9, skip,+2 and reverse card
   p
   |3. In uno there are some special cards +4 and wild card
   p
@@ -20,3 +24,15 @@ block content
   |6. After putting +4 or wild card player can change next card's colour
   p
   |7. If a player puts +4 card next player will take 4 cards from stack.
+  br
+  br
+  div(id="UNOcard")
+   img(src="./Unocard PIcs/Y_S_2.jpg" title="skip card")
+   img(src="./Unocard PIcs/R_P_1.jpg" title="plus two")
+   img(src="./Unocard PIcs/B_R_2.jpg" title="reverse card")
+   img(src="./Unocard PIcs/W_4_3.jpg" title="plus four")
+   img(src="./Unocard PIcs/W_0_1.jpg" title="wild card")
+  br
+  br
+
+  a(href="/" class="introductionLink") Go on HomePage
