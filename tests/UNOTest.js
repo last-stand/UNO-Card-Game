@@ -29,23 +29,23 @@ describe('uno_records',function(){
 
 	});
 	
-	// describe('#insertPlayer',function(){
-	// 	var user = {
-	// 			email: 'p6@gmail.com',
-	// 			user_name: 'destroyer',
-	// 			password:'12345' , 
-	// 			status:1
-	// 		};
-	// 	it('insert player email into players table',function(done){
-	// 		uno_records.insertPlayer(user, function(err){
-	// 			assert.notOk(err);
-	// 			uno_records.getPlayerInfo("p6@gmail.com",function(error,player){
-	// 				assert.notOk(error);
-	// 				assert.equal(player.email,"p6@gmail.com");
-	// 				done();
-	// 			});
-	// 		});
-	// 	});
+	describe('#insertPlayer',function(){
+		var user = {
+				email: 'p6@gmail.com',
+				user_name: 'destroyer',
+				password:'12345' , 
+				status:1
+			};
+		it('insert player email into players table',function(done){
+			uno_records.insertPlayer(user, function(err){
+				assert.notOk(err);
+				uno_records.getPlayerInfo("p6@gmail.com",function(error,player){
+					assert.notOk(error);
+					assert.equal(player.email,"p6@gmail.com");
+					done();
+				});
+			});
+		});
 	// 	it('insert player name into players table',function(done){
 	// 		uno_records.insertPlayer(user, function(err){
 	// 			assert.notOk(err);
@@ -66,7 +66,7 @@ describe('uno_records',function(){
 	// 			});
 	// 		});
 	// 	});
-	// });
+	});
 	
 	// describe('#get_password_by_email',function(){
 	// 	it('verify user by email and password',function(done){
