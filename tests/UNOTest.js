@@ -19,23 +19,23 @@ describe('uno_records',function(){
 				done();
 			});
 		});
-		// it('get information of player name from players table',function(done){
-	// 		uno_records.getPlayerInfo("p1@gmail.com", function(err,player){
-	// 			assert.notOk(err);
-	// 			assert.equal(player.user_name,"p1");
-	// 			done();
-	// 		});
-	// 	});
+		it('get information of player name from players table',function(done){
+			uno_records.getPlayerInfo("p1@gmail.com", function(err,player){
+				assert.notOk(err);
+				assert.equal(player.user_name,"p1");
+				done();
+			});
+		});
 
 	});
 	
-	describe('#insertPlayer',function(){
-		var user = {
-				email: 'p6@gmail.com',
-				user_name: 'destroyer',
-				password:'12345' , 
-				status:1
-			};
+	// describe('#insertPlayer',function(){
+	// 	var user = {
+	// 			email: 'p6@gmail.com',
+	// 			user_name: 'destroyer',
+	// 			password:'12345' , 
+	// 			status:1
+	// 		};
 	// 	it('insert player email into players table',function(done){
 	// 		uno_records.insertPlayer(user, function(err){
 	// 			assert.notOk(err);
