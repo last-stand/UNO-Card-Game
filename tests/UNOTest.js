@@ -83,17 +83,16 @@ describe('uno_records',function(){
 				done();
 			});
 		})
-
 	});
 
-	// describe('#startGameWithColouredCard',function(){
-	// 	it('starting card should be coloured',function(done){
-	// 		var arr = ['B','G','R','Y'];
-	// 		var card = UNOlib.game.startGameWithColouredCard();
-	// 		assert.ok(arr.indexOf(card.slice(0,1))>=0);
-	// 		done();
-	// 	});
-	// 	it('start card should not be wild card' , function(done){
+	describe('#startGameWithColouredCard',function(){
+		it('starting card should be coloured',function(done){
+			var arr = ['B','G','R','Y'];
+			var card = UNOlib.game.startGameWithColouredCard();
+			assert.ok(arr.indexOf(card.slice(0,1))>=0);
+			done();
+		});
+		// it('start card should not be wild card' , function(done){
 	// 		var arr = ['W'];
 	// 		var card = UNOlib.game.startGameWithColouredCard();
 	// 		assert.ok(arr.indexOf(card.slice(0,1))<0);
@@ -123,5 +122,5 @@ describe('uno_records',function(){
 	// 		assert.ok(arr.indexOf(card.slice(2,3))<0);
 	// 		done();
 	// 	});
-	// })
+	});
 });
