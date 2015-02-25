@@ -3,7 +3,8 @@ var lib = require('../modules/UNOLib.js').init("data/uno.db");
 var router = express.Router();
 var bc = require("bcryptjs");
 var uno_lib = require('../modules/UNOMethods.js');
-var startCard = uno_lib.game.startGameWithColouredCard();;
+var startCard = uno_lib.game.startGameWithColouredCard();
+var joined_players = [{"P1":0},{"P2":0},{"P3":0},{"P4":0}];
 /* GET home page. */
 router.get('/', function(req, res) {
   	res.render('homePage');
@@ -31,6 +32,7 @@ router.post('/register', function(req, res) {
 	var userData = req.body;
 	lib.insertPlayer(userData,function(err){
 		req.session.user = userData.email;
+		uno_lib.game.setPlayerAS(joined_players,req.session.user);
 		res.redirect('/UNOBoard');
 	});
 });
@@ -46,7 +48,8 @@ router.get("/login",function(req,res){
 router.post('/UNOBoard',requireLogin, function(req, res) {
 	var cards = {
 		email:req.session.user,
-		content:uno_lib.game.players
+		content:uno_lib.game.players,
+		joined_players:joined_players
 	}
 	broadcastOnSocket(cards);
 })
@@ -64,6 +67,7 @@ router.post("/login",function(req,res){
 		if(existing_user){
 			if(bc.compareSync(user.password,existing_user.password)){ 
 				req.session.user = user.email;
+				uno_lib.game.setPlayerAS(joined_players,req.session.user);
   				res.redirect('/UNOBoard');
   				return;
 			}		

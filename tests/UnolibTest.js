@@ -11,6 +11,5 @@ describe('UNOLib',function(){
 			assert(12345!=lib.get_hash_password("12345"));
 			done();
 		})
-	});
-	
+	});	
 });

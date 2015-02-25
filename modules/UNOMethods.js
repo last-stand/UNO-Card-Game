@@ -37,4 +37,13 @@ game.startGameWithColouredCard = function(){
 	return game.startGameWithColouredCard();
 }
 
+game.setPlayerAS = function(array,email){
+	for (var i = 0; i < array.length; i++) {
+		if(array[i][Object.keys(array[i])[0]]==0){
+			array[i][Object.keys(array[i])[0]] = email;
+			return;
+		}
+	}
+}
+
 distributeCards();

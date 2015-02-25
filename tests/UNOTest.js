@@ -55,8 +55,39 @@ describe('uno_records',function(){
 		it('starting card should be coloured',function(done){
 			var arr = ['B','G','R','Y'];
 			var card = UNOlib.game.startGameWithColouredCard();
-			assert.ok(arr.indexOf(card.slice(0,1)));
+			assert.ok(arr.indexOf(card.slice(0,1)) >= 0);
 			done();
 		});
-	})
+	});
+
+	describe('#setPlayerAS',function(){
+		var array = [{"P1":0},{"P2":0},{"P3":0},{"P4":0}];
+		it('find joined players to set the email',function(done){
+			var email = "p1@gmail.com";
+			var result = UNOlib.game.setPlayerAS(array,email);
+			assert.equal(array[0]["P1"],email);
+			assert.notEqual(array[1]["P2"],email);
+			assert.equal(array[1]["P2"],0);
+			done();
+		});
+		it('setPlayerAS set P2 with new email and remaining should be 0',function(done){
+			var email = "p2@gmail.com";
+			var result = UNOlib.game.setPlayerAS(array,email);
+			assert.equal(array[0]["P1"],"p1@gmail.com");
+			assert.equal(array[1]["P2"],email);
+			assert.notEqual(array[2]["P3"],email);
+			assert.equal(array[2]["P3"],0);
+			done();
+		});
+		it('setPlayerAS set P3 with new email and remaining should be 0',function(done){
+			var email = "p3@gmail.com";
+			var result = UNOlib.game.setPlayerAS(array,email);
+			assert.equal(array[0]["P1"],"p1@gmail.com");
+			assert.equal(array[1]["P2"],"p2@gmail.com");
+			assert.equal(array[2]["P3"],email);
+			assert.notEqual(array[3]["P4"],email);
+			assert.equal(array[3]["P4"],0);
+			done();
+		});
+	});
 });
