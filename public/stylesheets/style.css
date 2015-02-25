@@ -52,7 +52,7 @@ b{
   font: 10px;
   font-family: "Arial black";
   width: 7%;
-  margin-left: 10%;
+  margin-left: 4%;
 }
 .board{
   height: 380px;
@@ -155,4 +155,8 @@ b{
   height:115px;
   width:70px;
   box-shadow: 10px 10px 10px #888888;
+}
+
+.UNOcard{
+  : 90%;
 }
