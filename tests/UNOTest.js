@@ -1,4 +1,5 @@
 var lib = require('../modules/UNOLib');
+var UNOlib = require('../modules/UNOMethods');
 var assert = require('chai').assert;
 var fs = require('fs');
 var dbFileData = fs.readFileSync('tests/data/uno.db.backup');
@@ -16,8 +17,8 @@ describe('uno_records',function(){
 				assert.notOk(err);
 				assert.equal(player.email,"p1@gmail.com");
 				assert.equal(player.user_name,"p1");
+				done();
 			});
-			done();
 		});
 	});
 	
@@ -34,9 +35,9 @@ describe('uno_records',function(){
 					assert.notOk(error);
 					assert.equal(player.email,"p6@gmail.com");
 					assert.equal(player.user_name,"destroyer");
+					done();
 				});
 			});
-			done();
 		});
 	});
 	
@@ -45,9 +46,17 @@ describe('uno_records',function(){
 			uno_records.get_password_by_email("p1@gmail.com", function(err,player){
 				assert.notOk(err);
 				assert.equal(player.password,"12345");
+				done();
 			});
-			done();
 		});
 	});
 
+	describe('#startGameWithColouredCard',function(){
+		it('starting card should be coloured',function(done){
+			var arr = ['B','G','R','Y'];
+			var card = UNOlib.game.startGameWithColouredCard();
+			assert.ok(arr.indexOf(card.slice(0,1)));
+			done();
+		});
+	})
 });
