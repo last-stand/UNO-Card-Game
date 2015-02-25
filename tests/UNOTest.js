@@ -116,11 +116,11 @@ describe('uno_records',function(){
 			assert.ok(arr.indexOf(card.slice(2,3))<0);
 			done();
 		});
-	// 	it('start card should not be a plus two card' , function(done){
-	// 		var arr = ['P'];
-	// 		var card = UNOlib.game.startGameWithColouredCard();
-	// 		assert.ok(arr.indexOf(card.slice(2,3))<0);
-	// 		done();
-	// 	});
+		it('start card should not be a plus two card' , function(done){
+			var arr = ['P'];
+			var card = UNOlib.game.startGameWithColouredCard();
+			assert.ok(arr.indexOf(card.slice(2,3))<0);
+			done();
+		});
 	});
 });
