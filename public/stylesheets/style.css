@@ -8,27 +8,26 @@ a:link {
   color: #491c0c;
   border: 1px solid #a1a1a1;
   padding: 10px 40px;
-    color: #FF0000;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-    color: #00FF00;
-    text-decoration: none;
+  color: #0B2161;
+   text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: silver;
-    text-decoration: none;
-    background: maroon;
+  color: #0B0B3B;
+  text-decoration: none;
+  background: #2ECCFA;
 }
 
 /* selected link */
 a:active {
-    color: #0000FF;
-    text-decoration: none;
+  color: #0000FF;
+  text-decoration: none;
 }
 
 b{
