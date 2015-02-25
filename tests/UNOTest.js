@@ -104,12 +104,12 @@ describe('uno_records',function(){
 			assert.ok(arr.indexOf(card.slice(2,3))<0);
 			done();
 		});
-	// 	it('start card should not be a reverse card' , function(done){
-	// 		var arr = ['R'];
-	// 		var card = UNOlib.game.startGameWithColouredCard();
-	// 		assert.ok(arr.indexOf(card.slice(2,3))<0);
-	// 		done();
-	// 	});
+		it('start card should not be a reverse card' , function(done){
+			var arr = ['R'];
+			var card = UNOlib.game.startGameWithColouredCard();
+			assert.ok(arr.indexOf(card.slice(2,3))<0);
+			done();
+		});
 	// 	it('start card should not be a skip card' , function(done){
 	// 		var arr = ['S'];
 	// 		var card = UNOlib.game.startGameWithColouredCard();
