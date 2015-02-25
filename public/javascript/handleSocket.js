@@ -1,8 +1,8 @@
-var generateCards = function(cardArray) {
-	var mDiv = document.getElementById("mDiv");
+var generateCards = function(cardArray,divID,classNo) {
+	var mDiv = document.getElementById(divID);
 	var string = "";
 	cardArray.forEach(function(card){
-		string += "<img id= '"+card+"' src='./Unocard PIcs/"+card+".jpg' class='cardImg'>";
+		string += "<img id= '"+card+"' src='./Unocard PIcs/"+card+".jpg' class='cardImg"+classNo+"'>";
 	});
 	mDiv.innerHTML = "<center>"+string+"</center>";
 };
@@ -30,7 +30,10 @@ var onPageLoad =function(){
 	var socket = io.connect(window.location.hostname);
 
 	socket.on('new_content',function(data){
-		generateCards(data.content);
+		generateCards(data.content,"mDiv",1);
+		generateCards(data.content,"mDiv2",2);
+		generateCards(data.content,"mDiv3",3);
+		generateCards(data.content,"mDiv4",4);
 	 	// var comment=$("#mDiv").html();
 	 	// comment += list(data.comment);
 	 	// $("#mDiv").html(comment); 		

@@ -70,13 +70,87 @@ b{
   height: 110px;
 }
 
-.cardImg{
+#mDiv2{
+  width: 110px;
+}
+
+#mDiv3{
+  height: 110px;
+}
+
+#mDiv4{
+  width: 110px;
+}
+
+.cardImg1{
+  margin-right: -15px;
   padding: 5px;
   position:relative;
   height:100px;
   width:60px;
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
 } 
-.cardImg:hover{
+
+.cardImg2{
+  margin-top: -55px;
+  height:100px;
+  width:60px;
+  -webkit-transform: rotate(285deg);
+  -moz-transform: rotate(285deg);
+  -o-transform: rotate(285deg);
+  -ms-transform: rotate(285deg);
+  transform: rotate(285deg);
+}
+
+.cardImg3{
+  margin-right: -15px;
+  padding: 5px;
+  position:relative;
+  height:100px;
+  width:60px;
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+} 
+
+.cardImg4{
+  margin-top: -55px;
+  height:100px;
+  width:60px;
+  -webkit-transform: rotate(105deg);
+  -moz-transform: rotate(105deg);
+  -o-transform: rotate(105deg);
+  -ms-transform: rotate(105deg);
+  transform: rotate(105deg);
+}
+
+.cardImg1:hover{
+  position:relative;
+  height:115px;
+  width:70px;
+  box-shadow: 10px 10px 10px #888888;
+}
+.cardImg2:hover{
+  position:relative;
+  height:115px;
+  width:70px;
+  box-shadow: 10px 10px 10px #888888;
+}
+
+.cardImg3:hover{
+  position:relative;
+  height:115px;
+  width:70px;
+  box-shadow: 10px 10px 10px #888888;
+}
+
+.cardImg4:hover{
   position:relative;
   height:115px;
   width:70px;
