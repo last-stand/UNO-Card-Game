@@ -24,4 +24,16 @@ game.addCards = function(players,player,shuffledCards, numberOfCards){
 	});
 };
 
+var getRandomInt = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+game.startGameWithColouredCard = function(){
+	var index = getRandomInt(0, game.shuffledCards.length-1);
+	var arr = ['B','G','R','Y'];
+	if(arr.indexOf(game.shuffledCards[index].slice(0,1)))
+		return game.shuffledCards[index];
+	return game.startGameWithColouredCard();
+}
+
 distributeCards();
