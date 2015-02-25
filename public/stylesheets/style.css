@@ -50,10 +50,10 @@ b{
 
 .playButton {
   color: black;
-  font: 15px;
-  font-family: "Arial Black";
-  width: 10%;
-  margin-left: 10px;
+  font: 10px;
+  font-family: "Arial black";
+  width: 7%;
+  margin-left: 10%;
 }
 .board{
   height: 380px;

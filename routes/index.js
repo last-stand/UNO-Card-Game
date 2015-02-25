@@ -9,13 +9,13 @@ router.get('/', function(req, res) {
   	res.render('homePage');
 });
 
-router.get('/UNOBoard', function(req, res) {
-  	res.render('UNOBoard');
-});
-
 var requireLogin = function(req,res,next){
 	req.session.user? next(): res.redirect('/login');
 };
+
+router.get('/UNOBoard',requireLogin, function(req, res) {
+  	res.render('UNOBoard');
+});
 
 router.get('/logout',requireLogin, function(req, res) {
 	req.session.destroy();
