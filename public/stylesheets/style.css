@@ -68,6 +68,11 @@ b{
   position: relative;
   height: 45%;
   width: 17%;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
 }
 
 #mDiv{
@@ -163,4 +168,23 @@ b{
 
 .UNOcard{
   : 90%;
+}
+
+#playerInfo{
+  float: left;
+  width:300px;
+  margin-bottom: 200px;
+}
+
+h4{
+  color: green;
+}
+
+span{
+  font-family: monospace;
+  font-weight: bold;
+  color: red;
+}
+#empty{
+  width: 100px;
 }

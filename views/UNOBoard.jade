@@ -10,6 +10,12 @@ block content
   form(action="/UNOBoard" method="POST")
    table(border="0px solid")
     tr
+     td(rowspan="4")
+      div(id="playerInfo")
+     td(rowspan="4")
+      div(id="empty")
+      img(src="./Unocard PIcs/bar.png" heigth="100px") 
+    tr
      td
      td(align="center")
       div(id="mDiv3")
@@ -29,4 +35,4 @@ block content
      td(colspan=3)
       div(id="mDiv")
    br
-   input(type="submit" value="Start" class="playButton"  title="Click here to start game.")
+   input(type="submit" id="play" value="Start" class="playButton"  title="Click here to start game.")

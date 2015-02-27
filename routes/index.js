@@ -51,21 +51,21 @@ router.post('/UNOBoard',requireLogin, function(req, res) {
 		content:uno_lib.game.players,
 		joined_players:joined_players
 	}
-	broadcastOnSocket(cards);
+	broadcastOnSocket(cards,"new_content");
 })
 
-var broadcastOnSocket =function(content){
+var broadcastOnSocket =function(content,key){
 	var socket = router.getSocket();
 	console.log("socket:",socket.id);
-	socket.broadcast.emit("new_content",content);
-	socket.emit("new_content",content);
+	socket.broadcast.emit(key,content);
+	socket.emit(key,content);
 }
 
 router.post("/login",function(req,res){
 	var user = req.body;
 	lib.get_password_by_email(user.email,function(err,existing_user){
 		if(existing_user){
-			if(bc.compareSync(user.password,existing_user.password)){ 
+			if(bc.compareSync(user.password,existing_user.password)){
 				req.session.user = user.email;
 				uno_lib.game.setPlayerAS(joined_players,req.session.user);
   				res.redirect('/UNOBoard');

@@ -1,3 +1,4 @@
+var numberOfPlayers;
 var generateCards = function(cardArray,divID,classNo) {
 	var mDiv = document.getElementById(divID);
 	var string = "";
@@ -7,6 +8,25 @@ var generateCards = function(cardArray,divID,classNo) {
 	mDiv.innerHTML = "<center>"+string+"</center>";
 };
 
+var printPlayers = function(array){
+	var num = 0;
+	var playerDiv = document.getElementById("playerInfo");
+	var playerString = "";
+	numberOfPlayers = 0;
+	for (var i = 0; i < array.length; i++) {
+		num = i+1;
+		if(array[i][Object.keys(array[i])[0]]){
+			playerString += "<h4>Player"+num+" : "+array[i][Object.keys(array[i])[0]]+"</h4><br>";
+			numberOfPlayers++;
+		}
+		if(numberOfPlayers < 4)
+			playerDiv.innerHTML = playerString + "<span> Wait till 4th player joins.</span>";
+		else{
+			playerDiv.innerHTML = playerString;
+			document.getElementById("play").style.visibility = "hidden";
+		}
+	}
+}
 // var  loadComments = function(){
 // 	$.ajax("/getComments/"+getId())
 // 		.done(function(data){
@@ -29,18 +49,23 @@ var generateCards = function(cardArray,divID,classNo) {
 var onPageLoad =function(){
 	var socket = io.connect(window.location.hostname);
 
+	var numUsers = 0;
+	// socket.on('close',function(data){
+	//  	window.location.reload() 		
+	// });
+	
 	socket.on('new_content',function(data){
-		generateCards(data.content[0].p1,"mDiv",1);
-		generateCards(data.content[1].p2,"mDiv2",2);
-		generateCards(data.content[2].p3,"mDiv3",3);
-		generateCards(data.content[3].p4,"mDiv4",4);
+		printPlayers(data.joined_players);
+		if(numberOfPlayers == 4){
+			generateCards(data.content[0].p1,"mDiv",1);
+			generateCards(data.content[1].p2,"mDiv2",2);
+			generateCards(data.content[2].p3,"mDiv3",3);
+			generateCards(data.content[3].p4,"mDiv4",4);
+		}
 	 	// var comment=$("#mDiv").html();
 	 	// comment += list(data.comment);
 	 	// $("#mDiv").html(comment); 		
 	});
-	// socket.on('close',function(data){
-	//  	window.location.reload() 		
-	// });
 
 	// $("#btn_comment").click(function(){
 	// 	var id = getId();
